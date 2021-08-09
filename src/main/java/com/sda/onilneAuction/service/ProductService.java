@@ -1,6 +1,7 @@
 package com.sda.onilneAuction.service;
 
 import com.sda.onilneAuction.dto.ProductDto;
+import com.sda.onilneAuction.model.Category;
 import com.sda.onilneAuction.model.Product;
 import com.sda.onilneAuction.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class ProductService {
         Product product = new Product();
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());
+        product.setCategory(Category.valueOf(productDto.getCategory()));
         product.setStartingPrice(Integer.valueOf(productDto.getStartBiddingPrice()));
         //product.setCategory();
         product.setEndDateTime(LocalDateTime.parse(productDto.getEndDateTime()));
